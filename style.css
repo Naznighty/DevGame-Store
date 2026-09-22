@@ -106,6 +106,15 @@ header {
   background: #560010;
 }
 
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--cream);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
 .dropdown {
   position: relative;
 }
@@ -497,5 +506,66 @@ footer hr {
 
   .footer-columns {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  header {
+    grid-template-columns: 1fr auto;
+    padding: 1rem 5%;
+  }
+
+  .nav-toggle {
+    display: block;
+    justify-self: end;
+  }
+
+  #navbar {
+    grid-column: 1 / -1;
+    order: 3;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+
+  #navbar.open {
+    max-height: 400px;
+  }
+
+  #navbar ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 1rem 0;
+  }
+
+  #navbar li {
+    width: 100%;
+  }
+
+  #navbar > ul > li > a {
+    display: block;
+    padding: 0.7rem 0;
+  }
+
+  .dropdown-menu {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding-left: 1rem;
+  }
+
+  .search {
+    grid-column: 1 / -1;
+    order: 2;
+    justify-self: stretch;
+    margin-top: 0.8rem;
+  }
+
+  .search input {
+    flex: 1;
   }
 }

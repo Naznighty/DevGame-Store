@@ -1,3 +1,15 @@
+const navToggle = document.getElementById("navToggle");
+const navbar = document.getElementById("navbar");
+
+navToggle.addEventListener("click", () => {
+  const isOpen = navbar.classList.toggle("open");
+  navToggle.setAttribute("aria-expanded", isOpen);
+});
+
+document.querySelectorAll("#navbar a:not(.dropdown-toggle)").forEach((a) => {
+  a.addEventListener("click", () => navbar.classList.remove("open"));
+});
+
 const dropdown = document.querySelector(".dropdown");
 
 dropdown.querySelector(".dropdown-toggle").addEventListener("click", (e) => {
